@@ -552,7 +552,7 @@ func (t *udp) pending(id common.NodeID, ip net.IP, ptype byte, callback replyMat
 }
 
 func (t *udp) nodeFromRPC(sender *net.UDPAddr, rn rpcNode) (*node, error) {
-	if rn.UDP == 0 || rn.TCP == 0 {
+	if rn.UDP == 0 {
 		return nil, errors.New("UDPPort==0 or TCPPort==0")
 	}
 	if err := netutil.CheckRelayIP(sender.IP, rn.IP); err != nil {
